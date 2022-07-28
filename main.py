@@ -12,12 +12,6 @@ parser.add_argument("--input-path", type=str, dest="in_path", required=True)
 parser.add_argument("--output-path", type=str, dest="out_path", default=None, required=False)
 
 
-def get_default_out_path(in_path):
-    splitted_path = in_path.split("/")
-    file_name = splitted_path[-1].split(".")[0]
-    base_path =  "/".join(splitted_path[:-1])
-    return os.path.join(base_path, f"{file_name}_cleaned.pdf")
-
 
 def get_pages_map(pdf):
     raw_trailer = pdf.trailer["/Root"]["/PageLabels"]["/Nums"]
